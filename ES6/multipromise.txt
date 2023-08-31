@@ -1,0 +1,46 @@
+
+
+//create promise of three concurrent sessions of a day and try to resolve and reject them
+
+let SpringBootPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({
+      sessionName: "SpringBoot",
+    });
+  }, 3000);
+});
+
+let awsPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    reject({
+      sessionName: "Amazon Web Services",
+    });
+  }, 1000);
+});
+
+let dsaPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve({
+      sessionName: "Data Structures & Algo.",
+    });
+  }, 2000);
+});
+
+Promise.all([SpringBootPromise, awsPromise, dsaPromise])
+  .then((data) => {
+    console.log("Promise.all: ", data);
+  })
+  .catch((err) => {
+    console.error("Promise.all err: ", err);
+  });
+
+  Promise.allSettled(
+    [SpringBootPromise,
+      awsPromise,
+      dsaPromise]
+    ).then((data)=>{
+        console.log("then ", data)
+    }).catch((err)=>{
+        console.log("catch ",err)
+    })
+
