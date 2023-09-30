@@ -96,3 +96,26 @@
 // app.listen(9000, function () {
 //   console.log('App is listening to port 9000');
 // });
+
+
+
+//6. What is the purpose of RESTFul API and what specifications are must to make a service RESTFul
+
+// - The purpose of a RESTful API is to provide a standardized way for different software components, systems, or applications to communicate over the internet using the principles of Representational State Transfer (REST).
+
+//Specifications to Make a Service RESTful:
+//To make a service RESTful, we must use these specifications:
+
+// Client-Server Architecture: Separate the client (user interface) and server (data storage and processing) components, allowing them to evolve independently.
+
+// Statelessness: Each client request must contain all the information needed for the server to understand and fulfill the request.
+
+//Cacheability: Responses can be cached to improve performance and reduce server load. Clients and intermediaries can cache responses and use them for subsequent requests.
+
+
+//Uniform Interface:
+//Resource Identification: Resources (data) are identified using URIs (Uniform Resource Identifiers).
+//Resource Manipulation: Use HTTP methods (GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources.
+//Self-Descriptive Messages: Responses should include enough metadata (headers) for clients to understand how to process the data.
+//Hypermedia as the Engine of Application State (HATEOAS): Responses include hyperlinks that guide clients to available actions or related resources.
+//Layered System: Components (servers, proxies, gateways, etc.) can be added between clients and servers to provide security, load balancing, caching, etc., without impacting the overall system behavior.
