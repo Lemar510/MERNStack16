@@ -13,11 +13,19 @@ import thunk from "redux-thunk"; //is used to pipeline the dispatched objects an
 
 import userReducer from "./User/UserReducer";
 import productReducer from "./Product/ProductReducer";
+import cartReducer from "./Cart/CartReducer";
+import checkoutReducer from "./Checkout/CheckoutReducer";
+import couponReducer from "./Coupon/CouponReducer";
+import recentOrderReducer from "./RecentOrder/RecentOrderReducer";
 
 //combine reducer is used to combine all the reducers we need in our store/state
 const rootReducer = combineReducers({
-    user: userReducer,//userReducer : userReducer //- using short hand
-    product: productReducer
+    userReducer,//userReducer : userReducer //- using short hand
+    productReducer,
+    cartReducer,
+    checkoutReducer,
+    couponReducer,
+    recentOrderReducer
 })
 
 //create configure and export the store from this code

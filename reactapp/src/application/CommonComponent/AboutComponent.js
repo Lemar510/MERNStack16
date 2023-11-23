@@ -8,7 +8,7 @@ let About = ()=>{
     let goToUser = useNavigate();
 
     let onGoToUserClick = (evt)=>{
-        goToUser("/user");
+        goToUser("/hook");
         
         evt.preventDefault();//it stops the default behaviour like event propagation
     }
@@ -17,18 +17,16 @@ let About = ()=>{
         //<form action="/saveUser" onSubmit={onGoToUserClick}>
             <div className="about" >  
                 <h2>We promise to support .... </h2>  
-                <p className="about-content">If you’re looking for a job—a great job—we can help  
-                    you get in the door at some incredible companies.  
-                    Need to hire good people? We know thousands.  
-                    Let us introduce you. No matter where you are,  
-                    we can help you get where you want to go in your career.  
+                <p className="about-content">RashidTech is your premier destination for cutting-edge tech products and innovations. 
+                Rooted in quality and customer-centricity, we strive to offer a seamless shopping experience tailored to the needs of today's tech enthusiasts. 
+                Our team handpicks every item, ensuring top-notch quality and the latest features. 
+                Dive into RashidTech and discover a world where technology meets simplicity. 
                 </p>  
-                <p>id = {param}</p>
                 
                 <button className={"form-control btn btn-primary col-md-2"} 
                         onClick={onGoToUserClick} 
                         //onSubmit={onGoToUserClick}
-                        >Go To User</button>
+                        >Click Here to Sign In</button>
             </div>
         //</form>
     )

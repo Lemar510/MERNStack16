@@ -6,21 +6,46 @@ const cors = require('cors');
 const userRoute = require("./router/user_route")
 const userApp = express();
 
+const productRoute = require("./router/product_route")
+const productApp = express();
+
+const cartRoute = require("./router/cart_route")
+const cartApp = express();
+
+const checkoutRoute = require("./router/checkout_route")
+const checkoutApp = express();
+
+const recentOrderRoute = require('./router/recentOrder_route');
+const recentOrderApp = express();
+
 console.log("We are in server.js")
 
 app.use(cors());//middleware to expose api for other users as public
 //setting up the middleware static to handle all the static files we need to serve to client
 // serve static files like images css using static middleware 
-app.use('/static', express.static('public')) //localhost:9000/static/alert.js
+//app.use('/static', express.static('public')) //localhost:9000/static/alert.js
+app.use('/images', express.static('src/application/images'))
+
 
 //json middle-ware for setting request content type to json in body
 app.use(express.json({limit:'2mb', extended:false})); 
 
 //redirect all request with /admin path to userApp
-app.use('/user',userRoute)
-
-//mounted admin app
+app.use('/user',userApp)
 userApp.use('/',userRoute)
+
+app.use('/product',productApp)
+productApp.use('/', productRoute)
+
+app.use('/cart',cartApp)
+cartApp.use('/', cartRoute)
+
+app.use('/checkout',checkoutApp)
+checkoutApp.use('/', checkoutRoute)
+
+app.use('/recentOrders', recentOrderApp);
+recentOrderApp.use('/', recentOrderRoute);
+
 
 //wild card operator / default api
 app.get('*',(req, res)=>{

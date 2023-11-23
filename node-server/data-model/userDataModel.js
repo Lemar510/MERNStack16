@@ -10,9 +10,14 @@ mongooseObj.connect("mongodb://127.0.0.1/mernstack16");
 
 let userSchema = new schemaObj({
     userName : {type: String, required : true},
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: [/.+\@.+\..+/, 'Please include a valid email address']
+
+    },
     password: {type:String, required : true},
-    street: String,
-    mobile: Number
 }
 // ,{
 //     versionKey: false //false - set to false then it wont create in mongodb
